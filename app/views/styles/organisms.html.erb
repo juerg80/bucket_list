@@ -55,18 +55,11 @@
     <h2>02. Ideas</h2>
     <div>
       <ul class="bare-list float-grid css-grid">
-        <li>
-          <%= render(partial: 'idea_card') %>
-        </li>
-        <li>
-          <%= render(partial: 'idea_card') %>
-        </li>
-        <li>
-          <%= render(partial: 'idea_card') %>
-        </li>
-        <li>
-          <%= render(partial: 'idea_card') %>
-        </li>
+        <% ["Swim with fish", "Cycle in the Alps", "See the Northern Lights", "Make homemade pasta"].each do |item| %>
+          <li>
+          <%= render(partial: 'idea_card', locals: { title: item}) %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </section>
@@ -94,10 +87,7 @@
           <label class="input-group__label" for="goal-description">Description</label>
           <textarea id="goal-description" class="input-group__field"></textarea>
         </div>
-        <div class="prompt">
-          <a class="prompt__cancel" href="#cancel">Cancel</a>
-          <button class="btn btn--primary prompt__confirm" type="submit">Create Goal</button>
-        </div>
+        <%= render(partial: 'prompt', locals: { label: 'Create Goal'}) %>
       </form>
     </div>
   </section>
@@ -121,10 +111,7 @@
           <label class="input-group__label" for="profile-description">Description</label>
           <textarea id="profile-description" class="input-group__field"></textarea>
         </div>
-        <div class="prompt">
-          <a class="prompt__cancel" href="#cancel">Cancel</a>
-          <button class="btn btn--primary prompt__confirm" type="submit">Update profile</button>
-        </div>
+          <%= render(partial: 'prompt', locals: { label: 'Update profile'}) %>
       </form>
     </div>
   </section>
