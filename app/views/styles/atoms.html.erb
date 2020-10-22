@@ -6,9 +6,9 @@
     </p>
     <nav>
       <ul class="sub-navigation">
-        <li><%= link_to('Atoms', '/styles/atoms') %></li>
-        <li><a href="molecules.html">Molecules</a></li>
-        <li><a href="organisms.html">Organisms</a></li>
+        <%= render(partial: 'secondary_navigation', locals: { current: true, label: 'Atoms', link: '/styles/atoms' }) %>
+        <%= render(partial: 'secondary_navigation', locals: { current: false, label: 'Molecules', link: '/styles/molecules' }) %>
+        <%= render(partial: 'secondary_navigation', locals: { current: false, label: 'Organisms', link: '/styles/organisms' }) %>
         <li><a href="templates.html">Templates</a></li>
         <li><a href="#pages">Pages</a></li>
       </ul>

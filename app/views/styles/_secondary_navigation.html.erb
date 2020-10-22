@@ -1,1 +1,5 @@
-<li><%= link_to(<=% label %>, <=% link %>) %></li>
+<% if(current == true) %>
+  <li><%= link_to( label , link, class: 'current') %></li>
+<% else %>
+  <li><%= link_to( label , link ) %></li>
+<% end %>
