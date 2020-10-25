@@ -9,6 +9,8 @@ class IdeasController < ApplicationController
   def create
     new_idea = Idea.new
     new_idea.title = params[:title]
+    new_idea.done_count = params[:done_this]
+    new_idea.photo_url = params[:photo_url]
     new_idea.save!
     redirect_to ideas_index_path
   end

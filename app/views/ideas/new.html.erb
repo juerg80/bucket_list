@@ -6,6 +6,14 @@
         <label class="input-group__label" for="title">Title</label>
         <%= text_field_tag('title', nil, class: 'input-group__field', placeholder: 'e.g. ride camel') %>
       </div>
+      <div class="input-group input-group--horizontal">
+        <label class="input-group__label" for="photo_url">Photo URL</label>
+        <%= text_field_tag('photo_url', nil, class: 'input-group__field', placeholder: '/my_pic.jpg') %>
+      </div>
+      <div class="input-group input-group--horizontal">
+        <label class="input-group__label" for="done_this">Done Count</label>
+        <%= number_field_tag('done_this', nil, class: 'input-group__field', placeholder: '0') %>
+      </div>
       <div class="prompt">
         <a class="prompt__cancel" href="#cancel">Cancel</a>
         <%= button_tag('Create idea', class: 'btn btn--primary prompt__confirm') %>

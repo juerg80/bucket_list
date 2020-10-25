@@ -1,12 +1,9 @@
 <div class="card">
   <div class="card__thumb">
-    <a href="ideas/one-example-idea.html">
-      <img src="http://fpoimg.com/255x170"
-           alt="Northern lights over mountain covered in snow">
-    </a>
+    <%= image_tag( photo_url ) %>
     <div class="card__intro">
       <h4 class="card__title"><%= title %></h4>
-      <span>1,598 have done this</span>
+      <span><%= done_this %> have done this</span>
     </div>
   </div>
   <div class="card__footer">
