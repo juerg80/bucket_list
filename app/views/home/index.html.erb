@@ -16,9 +16,9 @@
   <div class="content-wrapper">
     <h2>Some ideas</h2>
     <ul class="bare-list float-grid css-grid">
-      <% ["Cycle in the Alps", "See the Northern Lights", "Make homemade pasta"].each do |item| %>
+      <% @ideas.each do |item| %>
         <li>
-        <%= render(partial: 'idea_card', locals: { title: item}) %>
+        <%= render(partial: 'idea_card', locals: { title: item.title}) %>
         </li>
       <% end %>
     </ul>
