@@ -18,7 +18,7 @@
     <ul class="bare-list float-grid css-grid">
       <% @ideas.each do |item| %>
         <li>
-        <%= render(partial: 'idea_card', locals: { title: item.title, done_this: item.done_count, photo_url: item.photo_url}) %>
+        <%= render(partial: 'idea_card', locals: { title: item.title, done_this: item.done_count, photo_url: item.photo_url }) %>
         </li>
       <% end %>
     </ul>
