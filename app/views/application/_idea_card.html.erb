@@ -1,6 +1,12 @@
 <div class="card">
   <div class="card__thumb">
-    <%= image_tag( photo_url ) %>
+    <a href="ideas/one-example-idea.html">
+      <% if(photo_url.nil?) %>
+        <img src="C:\Users\juerg\Documents\Admin\2020\Ausbildung\EPFL_WebApps\Course_3\projects\bucket_list\app\assets\images\turtle.jpg" alt="Turtle">
+      <% else %>
+        <%= image_tag(photo_url) %>
+      <% end %>
+    </a>
     <div class="card__intro">
       <h4 class="card__title"><%= title %></h4>
       <span><%= done_this %> have done this</span>
@@ -8,15 +14,15 @@
   </div>
   <div class="card__footer">
     <button class="card__btn card__like delta" data-like="see-the-northern-lights">
-      <svg class="icon-heart icon-heart--liked" role="presentation">
+      <!-- <svg class="icon-heart icon-heart--liked" role="presentation">
         <use xlink:href="images/icons-defs.svg#heart"></use>
-      </svg>
+      </svg> -->
       Like
     </button>
     <button class="card__btn card__add delta" data-addGoal="see-the-northern-lights">
-      <svg class="icon-pluss" role="presentation">
+      <!-- <svg class="icon-pluss" role="presentation">
         <use xlink:href="images/icons-defs.svg#pluss"></use>
-      </svg>
+      </svg> -->
       Add Goal
     </button>
   </div>
