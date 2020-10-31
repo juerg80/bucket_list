@@ -9,18 +9,18 @@ class SimpleNavigationsTest < ApplicationSystemTestCase
   #   assert current_url.include?('q=Spain')
   # end
 
-  test 'style guide navigation' do
-    visit('/')
-    click_on('Style Guide')
-    assert has_content?('Atoms')
-    assert has_content?('Molecules')
-    assert has_content?('Organisms')
-    click_on('Molecules')
-    assert has_content?('Card')
-    click_on('Organisms', match: :first)
-    assert has_content?('Create Goal')
-    click_on('My Bucket List', match: :first)
-    assert has_content?('Some ideas')
-  end
+  # test 'style guide navigation' do
+  #   visit('/')
+  #   click_on('Style Guide')
+  #   assert has_content?('Atoms')
+  #   assert has_content?('Molecules')
+  #   assert has_content?('Organisms')
+  #   click_on('Molecules')
+  #   assert has_content?('Card')
+  #   click_on('Organisms', match: :first)
+  #   assert has_content?('Create Goal')
+  #   click_on('My Bucket List', match: :first)
+  #   assert has_content?('Some ideas')
+  # end
 
 end
