@@ -1,11 +1,7 @@
 <div class="card">
   <div class="card__thumb">
-    <a href="ideas/one-example-idea.html">
-      <% if(photo_url.nil?) %>
-        <img src="C:\Users\juerg\Documents\Admin\2020\Ausbildung\EPFL_WebApps\Course_3\projects\bucket_list\app\assets\images\turtle.jpg" alt="Turtle">
-      <% else %>
-        <%= image_tag(photo_url) %>
-      <% end %>
+    <a href="<%= show_idea_path( idea ) %>">
+      <%= render(partial: 'idea_photo', locals: { photo_url: photo_url}) %>
     </a>
     <div class="card__intro">
       <h4 class="card__title"><%= title %></h4>

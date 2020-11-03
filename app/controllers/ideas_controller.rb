@@ -6,6 +6,10 @@ class IdeasController < ApplicationController
     @ideas = Idea.all
   end
 
+  def show
+    @idea = Idea.find(params[:id])
+  end
+
   def create
     new_idea = Idea.new
     new_idea.title = params[:title]
