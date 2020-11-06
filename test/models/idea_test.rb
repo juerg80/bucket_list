@@ -59,7 +59,46 @@ class IdeaTest < ActiveSupport::TestCase
   #   assert_equal Idea.search('snorkelling').length, 0
   # end
 
-  test 'No matching result' do
+  # test 'No matching result' do
+  #   Idea.all.each do |idea|
+  #    idea.destroy
+  #   end
+  #
+  #   first_idea = Idea.new
+  #   first_idea.title = 'Stand at the top of the Empire State Building'
+  #   first_idea.save!
+  #   second_idea = Idea.new
+  #   second_idea.title = 'Stand on the pyramids'
+  #   second_idea.save!
+  #
+  #   assert_equal Idea.search('Stand').length, 2
+  # end
+
+  # test 'No idea exists' do
+  #   Idea.all.each do |idea|
+  #    idea.destroy
+  #   end
+  #
+  #   assert_equal Idea.most_recent.length, 0
+  # end
+
+  # test '2 ideas exists' do
+  #   Idea.all.each do |idea|
+  #    idea.destroy
+  #   end
+  #
+  #   first_idea = Idea.new
+  #   first_idea.title = 'Stand at the top of the Empire State Building'
+  #   first_idea.save!
+  #   second_idea = Idea.new
+  #   second_idea.title = 'Stand on the pyramids'
+  #   second_idea.save!
+  #
+  #   assert_equal Idea.most_recent.length, 2
+  #   assert_equal Idea.most_recent[0].title, 'Stand on the pyramids'
+  # end
+
+  test '6 ideas exists' do
     Idea.all.each do |idea|
      idea.destroy
     end
@@ -70,8 +109,21 @@ class IdeaTest < ActiveSupport::TestCase
     second_idea = Idea.new
     second_idea.title = 'Stand on the pyramids'
     second_idea.save!
+    first_idea2 = Idea.new
+    first_idea2.title = 'title 1'
+    first_idea2.save!
+    second_idea2 = Idea.new
+    second_idea2.title = 'title 2'
+    second_idea2.save!
+    first_idea3 = Idea.new
+    first_idea3.title = 'title 3'
+    first_idea3.save!
+    second_idea3 = Idea.new
+    second_idea3.title = 'title 4'
+    second_idea3.save!
 
-    assert_equal Idea.search('Stand').length, 2
+    assert_equal Idea.most_recent.length, 3
+    assert_equal Idea.most_recent[0].title, 'title 4'
   end
 
 end

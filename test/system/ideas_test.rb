@@ -37,9 +37,9 @@ class IdeasTest < ApplicationSystemTestCase
  #   assert_not page.has_content?('Visit Niagara Falls')
  # end
 
- test 'search' do
-   visit ideas_index_path(q: 'foo')
-   assert page.has_content?('No ideas found!')
- end
+ # test 'search' do
+ #   visit ideas_index_path(q: 'foo')
+ #   assert page.has_content?('No ideas found!')
+ # end
 
 end
