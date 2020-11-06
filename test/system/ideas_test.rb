@@ -10,4 +10,16 @@ class IdeasTest < ApplicationSystemTestCase
  #   visit ideas_index_path
  #   assert page.has_content?('Run Marathon')
  # end
+
+ test 'create new Idea' do
+
+   my_idea = Idea.new
+   my_idea.title = "my title"
+   my_idea.done_count = 99
+   my_idea.photo_url = "turtle.jpg"
+   my_idea.save!
+
+   visit(edit_idea_path(my_idea))
+ end
+
 end

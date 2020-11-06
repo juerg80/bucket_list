@@ -1,9 +1,5 @@
 <% if(photo_url.nil?) %>
-  <% if(alt_text.nil?) %>
-    <img src="C:\Users\juerg\Documents\Admin\2020\Ausbildung\EPFL_WebApps\Course_3\projects\bucket_list\app\assets\images\turtle.jpg" alt=<%= alt_text %>>
-  <% else %>
-    <img src="C:\Users\juerg\Documents\Admin\2020\Ausbildung\EPFL_WebApps\Course_3\projects\bucket_list\app\assets\images\turtle.jpg" alt="alt_text">
-  <% end %>
-<% else %>  
+  <img src="C:\Users\juerg\Documents\Admin\2020\Ausbildung\EPFL_WebApps\Course_3\projects\bucket_list\app\assets\images\turtle.jpg" alt="alt_text">
+<% else %>
   <%= image_tag( photo_url ) %>
 <% end %>
