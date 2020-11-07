@@ -42,4 +42,6 @@ class IdeasTest < ApplicationSystemTestCase
  #   assert page.has_content?('No ideas found!')
  # end
 
+ 
+
 end
