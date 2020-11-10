@@ -1,22 +1,22 @@
 <main>
   <div class="content-wrapper">
     <h1>Edit idea</h1>
-    <%= form_tag(idea_path(@idea), method: 'PATCH', class: 'form--inpage') do %>
+    <%= form_for(@idea, html: { class: 'form--inpage' }) do |form| %>
       <div class="input-group input-group--horizontal">
-        <label class="input-group__label" for="title">Title</label>
-        <%= text_field_tag('title', @idea.title, class: 'input-group__field', placeholder: 'e.g. ride camel') %>
+        <%= form.label(:title, class: 'input-group__label') %>
+        <%= form.text_field(:title, class: 'input-group__field')%>
       </div>
       <div class="input-group input-group--horizontal">
-        <label class="input-group__label" for="photo_url">Photo URL</label>
-        <%= text_field_tag('photo_url', @idea.photo_url, class: 'input-group__field', placeholder: '/my_pic.jpg') %>
+        <%= form.label(:photo_url, class: 'input-group__label') %>
+        <%= form.text_field(:photo_url, class: 'input-group__field')%>
       </div>
       <div class="input-group input-group--horizontal">
-        <label class="input-group__label" for="done_count">Done Count</label>
-        <%= number_field_tag('done_count', @idea.done_count, class: 'input-group__field', placeholder: '0') %>
+        <%= form.label(:done_count, class: 'input-group__label') %>
+        <%= form.text_field(:done_count, class: 'input-group__field')%>
       </div>
       <div class="prompt">
         <a class="prompt__cancel" href=ideas#update>Cancel</a>
-        <%= button_tag('Update Idea', class: 'btn btn--primary prompt__confirm') %>
+        <%= form.submit('Update Idea', class: 'btn btn--primary prompt__confirm') %>
       </div>
     <% end %>
   </div>

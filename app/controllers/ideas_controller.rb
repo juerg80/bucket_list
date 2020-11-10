@@ -26,7 +26,7 @@ class IdeasController < ApplicationController
 
   def update
     my_idea = Idea.find(params[:id])
-    my_idea.update(idea_params)
+    my_idea.update(idea_resource_params)
     redirect_to account_ideas_path
   end
 
@@ -34,6 +34,11 @@ class IdeasController < ApplicationController
 
   def idea_params
     params.permit(:title, :description, :photo_url, :done_count)
+  end
+
+  def idea_resource_params
+    params.require(:idea).permit(
+      :title, :photo_url, :done_count)
   end
 
 end
