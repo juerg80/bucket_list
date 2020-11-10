@@ -13,7 +13,7 @@ class IdeasController < ApplicationController
   def create
     new_idea = Idea.new(idea_params)
     new_idea.save!
-    redirect_to ideas_index_path
+    redirect_to ideas_path
   end
 
   def new

@@ -2,16 +2,16 @@ require "application_system_test_case"
 
 class HomePagesTest < ApplicationSystemTestCase
   # test 'First HomePage Test' do
-  #   visit ideas_new_path
+  #   visit new_idea_path
   #   fill_in('title', with: 'Climb Mont Blanc')
   #   click_on('Create idea')
-  #   visit ideas_new_path
+  #   visit new_idea_path
   #   fill_in('title', with: 'Visit Niagara Falls')
   #   click_on('Create idea')
-  #   visit ideas_new_path
+  #   visit new_idea_path
   #   fill_in('title', with: 'Climb Mont Blanc_2')
   #   click_on('Create idea')
-  #   visit ideas_new_path
+  #   visit new_idea_path
   #   fill_in('title', with: 'Visit Niagara Falls_2')
   #   click_on('Create idea')
   #   visit('/')
