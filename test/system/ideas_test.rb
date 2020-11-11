@@ -3,10 +3,10 @@ require "application_system_test_case"
 class IdeasTest < ApplicationSystemTestCase
  #  test 'create new ideas' do
  #   visit new_idea_path
- #   fill_in('title', with: 'Run Marathon')
- #   fill_in('done_this', with: 98)
- #   fill_in('photo_url', with: 'turtle.jpg')
- #   click_on('Create idea')
+ #   fill_in('Title', with: 'Run Marathon')
+ #   fill_in('Done_this', with: 98)
+ #   fill_in('Photo_url', with: 'turtle.jpg')
+ #   click_on('Create Idea')
  #   visit ideas_path
  #   assert page.has_content?('Run Marathon')
  # end
@@ -42,6 +42,6 @@ class IdeasTest < ApplicationSystemTestCase
  #   assert page.has_content?('No ideas found!')
  # end
 
- 
+
 
 end

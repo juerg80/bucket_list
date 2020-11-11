@@ -21,8 +21,7 @@ class IdeasController < ApplicationController
   end
 
   def edit
-    id = params[:id]
-    @idea = Idea.find(id)
+    @idea = Idea.find(params[:id])
   end
 
   def update
@@ -33,13 +32,8 @@ class IdeasController < ApplicationController
 
   private
 
-  def idea_params
-    params.permit(:title, :description, :photo_url, :done_count)
-  end
-
   def idea_resource_params
-    params.require(:idea).permit(
-      :title, :photo_url, :done_count)
+    params.require(:idea).permit(:title, :description, :photo_url, :done_count)
   end
 
 end

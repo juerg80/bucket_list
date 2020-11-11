@@ -4,6 +4,10 @@
     <%= form.text_field(:title, class: 'input-group__field')%>
   </div>
   <div class="input-group input-group--horizontal">
+    <%= form.label(:description, class: 'input-group__label') %>
+    <%= form.text_area(:description, class: 'input-group__field')%>
+  </div>
+  <div class="input-group input-group--horizontal">
     <%= form.label(:photo_url, class: 'input-group__label') %>
     <%= form.text_field(:photo_url, class: 'input-group__field')%>
   </div>
