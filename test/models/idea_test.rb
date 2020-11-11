@@ -139,22 +139,43 @@ class IdeaTest < ActiveSupport::TestCase
   #   assert_equal Idea.search('coast').length, 1
   # end
 
-  test 'Description and title match' do
+  # test 'Description and title match' do
+  #   Idea.all.each do |idea|
+  #    idea.destroy
+  #   end
+  #
+  #   first_idea = Idea.new
+  #   first_idea.title = 'Overnight hike in Switzerland'
+  #   first_idea.description = 'Stay in a Swiss refuge in the mountains'
+  #   first_idea.save!
+  #
+  #   second_idea = Idea.new
+  #   second_idea.title = 'Hike the mountains in Italy'
+  #   second_idea.description = 'See the Dolomites and Italian Alps'
+  #   second_idea.save!
+  #
+  #   assert_equal Idea.search('mountains').length, 2
+  # end
+
+  # test 'Title too long' do
+  #   Idea.all.each do |idea|
+  #    idea.destroy
+  #   end
+  #
+  #   first_idea = Idea.new
+  #   first_idea.title = 'Overnight hike in Switzerland Overnight hike in Switzerland Overnight hike in Switzerland Overnight hike in Switzerland'
+  #   first_idea.description = 'Stay in a Swiss refuge in the mountains'
+  #   assert_raise(Exception) { first_idea.save! }
+  # end
+
+  test 'No Title' do
     Idea.all.each do |idea|
      idea.destroy
     end
 
     first_idea = Idea.new
-    first_idea.title = 'Overnight hike in Switzerland'
     first_idea.description = 'Stay in a Swiss refuge in the mountains'
-    first_idea.save!
-
-    second_idea = Idea.new
-    second_idea.title = 'Hike the mountains in Italy'
-    second_idea.description = 'See the Dolomites and Italian Alps'
-    second_idea.save!
-
-    assert_equal Idea.search('mountains').length, 2
+    assert_raise(Exception) { first_idea.save! }
   end
 
 end
