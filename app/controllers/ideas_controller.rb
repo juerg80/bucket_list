@@ -11,9 +11,12 @@ class IdeasController < ApplicationController
   end
 
   def create
-    new_idea = Idea.new(idea_resource_params)
-    new_idea.save!
-    redirect_to ideas_path
+    @idea = Idea.new(idea_resource_params)
+    if(@idea.save)
+      redirect_to(ideas_path)
+    else
+      render 'new'
+    end
   end
 
   def new
@@ -25,9 +28,12 @@ class IdeasController < ApplicationController
   end
 
   def update
-    my_idea = Idea.find(params[:id])
-    my_idea.update(idea_resource_params)
-    redirect_to account_ideas_path
+    @idea = Idea.find(params[:id])
+    if(@idea.update(idea_resource_params))
+      redirect_to(ideas_path)
+    else
+      render 'edit'
+    end
   end
 
   private
