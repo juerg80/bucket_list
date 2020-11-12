@@ -168,14 +168,14 @@ class IdeaTest < ActiveSupport::TestCase
   #   assert_raise(Exception) { first_idea.save! }
   # end
 
-  test 'No Title' do
-    Idea.all.each do |idea|
-     idea.destroy
-    end
-
-    first_idea = Idea.new
-    first_idea.description = 'Stay in a Swiss refuge in the mountains'
-    assert_raise(Exception) { first_idea.save! }
-  end
+  # test 'No Title' do
+  #   Idea.all.each do |idea|
+  #    idea.destroy
+  #   end
+  #
+  #   first_idea = Idea.new
+  #   first_idea.description = 'Stay in a Swiss refuge in the mountains'
+  #   assert_raise(Exception) { first_idea.save! }
+  # end
 
 end
