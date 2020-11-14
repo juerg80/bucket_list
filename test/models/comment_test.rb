@@ -38,6 +38,7 @@ class CommentTest < ActiveSupport::TestCase
   #
   #   first_comment = Comment.new
   #   first_comment.body = 'This is great'
+  #   first_comment.user = User.new
   #   first_comment.idea = first_idea
   #
   #   first_idea.comments.push(first_comment)
@@ -56,9 +57,11 @@ class CommentTest < ActiveSupport::TestCase
 
     first_comment = Comment.new
     first_comment.body = 'This is great'
+    first_comment.user = User.new
 
     second_comment = Comment.new
     second_comment.body = 'This is fantastic'
+    second_comment.user = User.new
 
     first_idea.comments.push(first_comment)
     first_idea.comments.push(second_comment)
