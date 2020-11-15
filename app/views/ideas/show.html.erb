@@ -14,17 +14,11 @@
           <ul class="horizontal-list btn-group">
             <li>
               <a class="btn delta" href="<%= edit_idea_path( @idea ) %>">
-                <!-- <svg class="icon-check icon--sm" role="presentation">
-                  <!-- <use xlink:href="images/icons-defs.svg#check"></use> -->
-                <!-- </svg> -->
                 Edit
               </a>
             </li>
             <li>
               <button class="btn delta" type="button">
-                <!-- <svg class="icon-heart icon--sm" role="presentation">
-                  <!-- <use xlink:href="images/icons-defs.svg#heart"></use> -->
-                <!-- </svg> -->
                 Add
               </button>
             </li>
@@ -56,6 +50,8 @@
     <div class="comments">
       <h2 class="comments__title">Discussion <span>3 comments</span></h2>
 
+
+    <% if(@display_add_comment) %>
       <%= form_for([@idea, @comment], html: { class: 'comments__input'}) do |form| %>
         <%= image_tag( 'avatar.png' ) %>
         <div class="input-group">
@@ -64,6 +60,7 @@
         </div>
         <%= form.submit('Post', class: 'btn btn--primary') %>
       <% end %>
+  <% end %>
 
       <ul class="comments__listing">
         <%= @idea.comments.each do |comment| %>

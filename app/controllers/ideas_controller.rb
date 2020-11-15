@@ -7,6 +7,7 @@ class IdeasController < ApplicationController
   end
 
   def show
+    @display_add_comment = session[:user_id].present?
     @idea = Idea.find(params[:id])
     @comment = Comment.new
   end
