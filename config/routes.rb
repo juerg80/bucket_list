@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'goals/create'
   get 'comments/create'
   root to: 'home#index'
 
