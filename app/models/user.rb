@@ -4,4 +4,6 @@ class User < ApplicationRecord
 
   has_and_belongs_to_many :goals, class_name: 'Idea'
 
+  has_secure_password
+
 end
