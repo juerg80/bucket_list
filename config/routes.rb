@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get 'styles/molecules'
   get 'styles/organisms'
 
+  get 'users/new'
+  get 'sessions/new'
+
   resources :users do
     resources :goals
   end
