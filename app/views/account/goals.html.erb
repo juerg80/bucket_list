@@ -15,7 +15,7 @@
         <ul class="bare-list float-grid css-grid">
           <% @goals.each do |item| %>
             <li>
-
+              <%= render(partial: '_goal_card', locals: { title: item.title, done_count: item.done_count, photo_url: item.photo_url, idea: item}) %>
             </li>
           <% end %>
         </ul>
