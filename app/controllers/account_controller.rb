@@ -26,6 +26,10 @@ class AccountController < ApplicationController
     User.find(session[:user_id])
   end
 
+  def goals
+    @goals = current_user.goals
+  end
+
   private
 
   def user_params
