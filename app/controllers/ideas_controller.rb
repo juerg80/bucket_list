@@ -1,6 +1,7 @@
 class IdeasController < ApplicationController
-  before_action :ensure_authenticated, only: :edit
-  before_action :ensure_owner,         only: :edit
+  before_action :ensure_authenticated, only: [:edit, :update]
+  before_action :load_idea,            only: [:edit, :update]
+  before_action :ensure_owner,         only: [:edit, :update]
 
   def index
     @search_term = params[:q]
@@ -23,7 +24,7 @@ class IdeasController < ApplicationController
   def create
     user = User.find(session[:user_id])
     @idea = Idea.new(idea_resource_params)
-    @idea.user = user
+    @idea.users << user
     if(@idea.save)
       redirect_to(ideas_path)
     else
@@ -49,6 +50,10 @@ class IdeasController < ApplicationController
   end
 
   private
+
+  def load_idea
+    @idea = Idea.find(params[:id])
+  end
 
   def ensure_owner
     idea = Idea.find(params[:id])
