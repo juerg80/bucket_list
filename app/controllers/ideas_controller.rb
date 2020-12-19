@@ -1,4 +1,6 @@
 class IdeasController < ApplicationController
+  before_action :ensure_authenticated, only: :edit
+  before_action :ensure_owner,         only: :edit
 
   def index
     @search_term = params[:q]
@@ -47,6 +49,16 @@ class IdeasController < ApplicationController
   end
 
   private
+
+  def ensure_owner
+    idea = Idea.find(params[:id])
+
+    if(idea.user == current_user)
+      return
+    end
+
+    redirect_to(account_path)
+  end
 
   def idea_resource_params
     params.require(:idea).permit(:title, :description, :photo_url, :done_count)
