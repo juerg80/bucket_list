@@ -1,7 +1,8 @@
 class IdeasController < ApplicationController
-  before_action :ensure_authenticated, only: [:edit, :update]
+  include RolesHelper
+  before_action :ensure_authenticated, only: [:new, :create, :edit, :update]
   before_action :load_idea,            only: [:edit, :update]
-  before_action :ensure_owner,         only: [:edit, :update]
+  before_action :idea_resource_params, only: [:edit, :update]
 
   def index
     @search_term = params[:q]
@@ -55,14 +56,8 @@ class IdeasController < ApplicationController
     @idea = Idea.find(params[:id])
   end
 
-  def ensure_owner
-    idea = Idea.find(params[:id])
-
-    if(idea.user == current_user)
-      return
-    end
-
-    redirect_to(account_path)
+  def authorize_to_edit_idea
+    redirect_to account_path unless(can_edit?(@idea))
   end
 
   def idea_resource_params
