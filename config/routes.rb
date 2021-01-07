@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'users/new'
   get 'sessions/new'
 
-  resources :users do
+  resources :users, only: [:new, :create, :edit, :update] do
     resources :goals
   end
 
