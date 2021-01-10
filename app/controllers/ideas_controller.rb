@@ -1,8 +1,9 @@
 class IdeasController < ApplicationController
   include RolesHelper
-  before_action :ensure_authenticated, only: [:new, :create, :edit, :update]
-  before_action :load_idea,            only: [:edit, :update]
-  before_action :idea_resource_params, only: [:edit, :update]
+  before_action :ensure_authenticated,    only: [:new, :create, :edit, :update]
+  before_action :load_idea,               only: [:edit, :update]
+  # before_action :idea_resource_params, only: [:edit, :update]
+  before_action :authorize_to_edit_idea,  only: [:edit, :update]
 
   def index
     @search_term = params[:q]
@@ -24,8 +25,14 @@ class IdeasController < ApplicationController
 
   def create
     user = User.find(session[:user_id])
+    if defined?(user) == false
+      logger.info("exist user false")
+      user = User.find(params[:id])
+    end
+    logger.info("User id #{user.id}")
     @idea = Idea.new(idea_resource_params)
-    @idea.users << user
+    @idea.user_id = user.id
+    # @idea.user << user
     if(@idea.save)
       redirect_to(ideas_path)
     else
@@ -38,11 +45,9 @@ class IdeasController < ApplicationController
   end
 
   def edit
-    @idea = Idea.find(params[:id])
   end
 
   def update
-    @idea = Idea.find(params[:id])
     if(@idea.update(idea_resource_params))
       redirect_to(ideas_path)
     else
@@ -54,6 +59,7 @@ class IdeasController < ApplicationController
 
   def load_idea
     @idea = Idea.find(params[:id])
+    logger.info("Idea id #{@idea.id}")
   end
 
   def authorize_to_edit_idea

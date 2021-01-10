@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_01_05_190754) do
     t.integer "done_count"
     t.string "photo_url"
     t.string "description"
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.index ["user_id"], name: "index_ideas_on_user_id"
   end
 

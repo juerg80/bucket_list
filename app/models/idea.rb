@@ -4,7 +4,7 @@ class Idea < ApplicationRecord
 
   has_many :comments
   has_and_belongs_to_many :users
-  
+
   scope :most_recent, -> { order(created_at: :desc).limit(3) }
   scope :title_contains, ->(term) { where('title LIKE ?', "%#{term}%") }
   scope :description_contains, ->(term) { where('description LIKE ?', "%#{term}%") }
