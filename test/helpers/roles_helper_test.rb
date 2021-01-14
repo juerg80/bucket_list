@@ -7,7 +7,7 @@ class RolesHelperTest < ActionView::TestCase
     owner = User.create(email: 'test@epfl.ch', password: 'password')
     self.current_user = owner
 
-    idea = Idea.create(title: 'A test idea!', user: owner)
+    idea = Idea.create(title: 'A test idea!', user_id: owner.id)
     assert can_edit?(idea)
   end
 end
