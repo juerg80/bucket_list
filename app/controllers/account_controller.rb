@@ -4,7 +4,8 @@ class AccountController < ApplicationController
   def ideas
     user_id = session[:user_id]
     user = User.find(user_id)
-    @ideas = user.goals
+    # @ideas = user.goals
+    @ideas = user.ideas
   end
 
   def edit

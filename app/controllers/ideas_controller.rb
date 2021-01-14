@@ -2,7 +2,6 @@ class IdeasController < ApplicationController
   include RolesHelper
   before_action :ensure_authenticated,    only: [:new, :create, :edit, :update]
   before_action :load_idea,               only: [:edit, :update]
-  # before_action :idea_resource_params, only: [:edit, :update]
   before_action :authorize_to_edit_idea,  only: [:edit, :update]
 
   def index
@@ -31,8 +30,12 @@ class IdeasController < ApplicationController
     end
     logger.info("User id #{user.id}")
     @idea = Idea.new(idea_resource_params)
+    if (@idea.photo_url.length == 0 || !@idea.photo_url)
+      logger.info("photo_url #{@idea.photo_url}")
+      @idea.photo_url = 'turtle.jpg'
+    end
+    logger.info("photo_url #{@idea.photo_url}")
     @idea.user_id = user.id
-    # @idea.user << user
     if(@idea.save)
       redirect_to(ideas_path)
     else
@@ -67,7 +70,7 @@ class IdeasController < ApplicationController
   end
 
   def idea_resource_params
-    params.require(:idea).permit(:title, :description, :photo_url, :done_count)
+    params.require(:idea).permit(:title, :description, :photo_url, :done_count).with_defaults({photo_url: 'turtle.jpg'})
   end
 
 end

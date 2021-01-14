@@ -9,5 +9,4 @@ class Idea < ApplicationRecord
   scope :title_contains, ->(term) { where('title LIKE ?', "%#{term}%") }
   scope :description_contains, ->(term) { where('description LIKE ?', "%#{term}%") }
   scope :search, ->(search_term) { title_contains(search_term).or(description_contains(search_term)) }
-
 end
