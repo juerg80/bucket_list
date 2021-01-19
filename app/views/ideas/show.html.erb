@@ -57,7 +57,7 @@
 
 
     <% if(@display_add_comment) %>
-      <%= form_for([@idea, @comment], html: { class: 'comments__input'}) do |form| %>
+      <%= form_for([@idea, @comment], html: { class: 'comments__input'}, remote: true) do |form| %>
         <%= image_tag( 'avatar.png' ) %>
         <div class="input-group">
           <%= form.label(:body, 'Add a comment', class: 'input-group__label') %>
@@ -67,8 +67,8 @@
       <% end %>
   <% end %>
 
-      <ul class="comments__listing">
-        <%= @idea.comments.each do |comment| %>
+      <ul class="comments__listing" id="commentList">
+        <% @idea.comments.each do |comment| %>
           <li class="comment">
             <%= image_tag( 'avatar.png' ) %>
             <div class="comment__body">

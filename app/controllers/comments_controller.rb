@@ -8,7 +8,6 @@ before_action :ensure_authenticated
     @comment.idea = @idea
     @comment.save!
     puts "Errors: #{@comment.errors.full_messages}"
-    redirect_to(idea_path(@idea))
   end
 
   private
