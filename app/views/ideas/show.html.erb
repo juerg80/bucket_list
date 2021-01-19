@@ -18,10 +18,13 @@
               </a>
             </li>
             <li>
-              <% if(@user.present?) %>
-                <%= form_tag(user_goals_path(@user)) do %>
+              <% if(logged_in?) %>
+                <%= form_tag(user_goals_path(current_user)) do %>
                   <%= hidden_field_tag('idea_id', @idea.id) %>
                   <%= button_tag(class: 'btn delta', type: 'submit', disabled: @disable_add_goal) do %>
+                    <svg class="icon-heart icon--sm" role="presentation">
+                      <use href="<%= image_path('icons/icons-defs.svg') %>#heart"></use>
+                    </svg>
                     Add
                   <% end %>
                 <% end %>
