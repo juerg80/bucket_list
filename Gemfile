@@ -53,3 +53,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bcrypt'
 gem 'unsplash'
+gem 'carrierwave', '~> 1.1.0'
