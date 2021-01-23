@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :ideas do
     resources :comments
+    resources :photos
   end
 
   get '/account/ideas'
