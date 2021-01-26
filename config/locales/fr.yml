@@ -1,0 +1,15 @@
+fr:
+  login: 'Connexion'
+  logout: 'Deconnexion'
+  search:
+    button: 'Rechercher'
+    placeholder: 'par exemple, nager avec les dauphines'
+  Inspiration: 'Inspiration'
+  SignUp: 'Inscription'
+  Account: 'Compte'
+  helpers:
+    label:
+      user:
+        email: 'Email'
+        name: 'Nom et prénom'
+        avatar: 'Avatar'

@@ -1,7 +1,7 @@
 <nav class="site-header__nav">
   <ul class="main-navigation">
-    <li><a href="#nolink">Inspiration</a></li>
-    <li><%= link_to('Sign Up', new_user_path) %></li>
-    <li><%= link_to('Log In', sessions_new_path) %></li>
+    <li><a href="#nolink"><%= translate('Inspiration') %></a></li>
+    <li><%= link_to(translate('SignUp'), new_user_path) %></li>
+    <li><%= link_to(translate('login'), sessions_new_path) %></li>
   </ul>
 </nav>
