@@ -1,0 +1,2 @@
+export SECRET_KEY_BASE=3d84fdbae84a94c80e465eee1fb26a2dbf8ef79bdb68dd9b577fce971046f6ed7244a787e0ca5e685ab9102c4b912f9b537c4ad78d621e48fa9440e585bbd8cb
+rails server --environment production
