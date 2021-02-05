@@ -25,3 +25,5 @@ production:
   encoding: unicode
   database: bucket_list
   pool: 5
+  username: bucket_list
+  password: secret
